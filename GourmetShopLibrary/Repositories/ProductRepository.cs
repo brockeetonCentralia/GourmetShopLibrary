@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using GourmetShopLibrary.Interfaces;
+using GourmetShopLibrary.Models;
 
-namespace GourmetShopLibrary
+namespace GourmetShopLibrary.Repositories
 {
     public class ProductRepository : IProductRepository
     {

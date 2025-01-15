@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GourmetShopLibrary
+namespace GourmetShopLibrary.Models
 {
     public class Product
     {
@@ -13,6 +13,6 @@ namespace GourmetShopLibrary
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public int Stock { get; set; }    
+        public int Stock { get; set; }
     }
 }

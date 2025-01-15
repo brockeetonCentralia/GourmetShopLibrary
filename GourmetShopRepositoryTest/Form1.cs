@@ -1,4 +1,7 @@
 using GourmetShopLibrary;
+using GourmetShopLibrary.Interfaces;
+using GourmetShopLibrary.Models;
+using GourmetShopLibrary.Repositories;
 using System.Configuration;
 using System.Windows.Forms;
 
@@ -6,7 +9,7 @@ namespace GourmetShopRepositoryTest
 {
     public partial class Form1 : Form
     {
-        private readonly string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+        string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
         public Form1()
         {
             InitializeComponent();

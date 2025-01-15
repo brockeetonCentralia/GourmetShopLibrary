@@ -1,4 +1,6 @@
-﻿namespace GourmetShopLibrary
+﻿using GourmetShopLibrary.Models;
+
+namespace GourmetShopLibrary.Interfaces
 {
     public interface IProductRepository
     {
