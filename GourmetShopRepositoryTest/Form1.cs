@@ -25,9 +25,9 @@ namespace GourmetShopRepositoryTest
         {
             var product = new Product
             {
-                Name = nameTextBox.Text,
-                Price = decimal.Parse(priceTextBox.Text),
-                Stock = int.Parse(stockTextBox.Text)
+                ProductName = nameTextBox.Text,
+                UnitPrice = decimal.Parse(priceTextBox.Text),
+                Package = int.Parse(stockTextBox.Text)
             };
 
             IProductRepository repository = new ProductRepository(conn);

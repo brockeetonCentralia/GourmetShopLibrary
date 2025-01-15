@@ -11,8 +11,8 @@ namespace GourmetShopLibrary.Models
     {
         [Key]
         public int ProductID { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
+        public string ProductName { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int Package { get; set; }
     }
 }
