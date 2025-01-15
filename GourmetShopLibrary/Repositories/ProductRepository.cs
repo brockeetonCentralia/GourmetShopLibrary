@@ -35,8 +35,10 @@ namespace GourmetShopLibrary.Repositories
                             {
                                 ProductID = reader.GetInt32(0),
                                 ProductName = reader.GetString(1),
-                                UnitPrice = reader.GetDecimal(2),
-                                Package = reader.GetInt32(3)
+                                SupplierID = reader.GetInt32(2),
+                                UnitPrice = reader.GetDecimal(3),
+                                Package = reader.GetInt32(4),
+                                IsDiscontinued = reader.GetBoolean(5)
                             });
                         }
                     }
@@ -61,8 +63,10 @@ namespace GourmetShopLibrary.Repositories
                             {
                                 ProductID = reader.GetInt32(0),
                                 ProductName = reader.GetString(1),
-                                UnitPrice = reader.GetDecimal(2),
-                                Package = reader.GetInt32(3)
+                                SupplierID = reader.GetInt32(2),
+                                UnitPrice = reader.GetDecimal(3),
+                                Package = reader.GetInt32(4),
+                                IsDiscontinued = reader.GetBoolean(5)
                             };
                         }
                     }
@@ -76,11 +80,13 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("INSERT INTO Product (ProductName, UnitPrice, Package) VALUES (@ProductName, @UnitPrice, @Package)", connection))
+                using (var command = new SqlCommand("INSERT INTO Product (ProductName, SupplierID, UnitPrice, Package, IsDiscontinued) VALUES (@ProductName, @SupplierID, @UnitPrice, @Package, @IsDiscontinued)", connection))
                 {
                     command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    command.Parameters.AddWithValue("@SupplierID", product.SupplierID);
                     command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
                     command.Parameters.AddWithValue("@Package", product.Package);
+                    command.Parameters.AddWithValue("@IsDiscontinued", product.IsDiscontinued);
                     command.ExecuteNonQuery();
                 }
             }
@@ -91,11 +97,13 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, UnitPrice = @UnitPrice, Package = @Package WHERE ProductID = @ProductID", connection))
+                using (var command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, SupplierID = @SupplierID, UnitPrice = @UnitPrice, Package = @Package, IsDiscontinued = @IsDiscontinued WHERE ProductID = @ProductID", connection))
                 {
                     command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    command.Parameters.AddWithValue("@SupplierID", product.SupplierID);
                     command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
                     command.Parameters.AddWithValue("@Package", product.Package);
+                    command.Parameters.AddWithValue("@IsDiscontinued", product.IsDiscontinued);
                     command.Parameters.AddWithValue("@ProductID", product.ProductID);
                     command.ExecuteNonQuery();
                 }
