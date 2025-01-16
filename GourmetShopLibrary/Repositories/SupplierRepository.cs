@@ -28,6 +28,7 @@ namespace GourmetShopLibrary.Repositories
                 cmd.CommandType = CommandType.StoredProcedure;
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
                     Suppliers.Add(new Supplier
