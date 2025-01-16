@@ -25,5 +25,10 @@ namespace GourmetShopRepositoryTest
             SupplierForm supplierForm = new SupplierForm();
             supplierForm.ShowDialog();
         }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

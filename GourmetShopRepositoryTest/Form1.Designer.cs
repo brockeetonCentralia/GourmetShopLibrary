@@ -34,6 +34,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             supplierToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             // 
             // fileToolStripMenuItem
             // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem3 });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
@@ -62,7 +64,7 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 22);
+            toolStripMenuItem1.Size = new Size(99, 22);
             toolStripMenuItem1.Text = "View";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
@@ -76,9 +78,16 @@
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(180, 22);
+            toolStripMenuItem2.Size = new Size(99, 22);
             toolStripMenuItem2.Text = "View";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(180, 22);
+            toolStripMenuItem3.Text = "Exit";
+            toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // Form1
             // 
@@ -101,5 +110,6 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem supplierToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
     }
 }
