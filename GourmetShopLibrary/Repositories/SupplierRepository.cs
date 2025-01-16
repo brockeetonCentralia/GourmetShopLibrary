@@ -82,8 +82,9 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("INSERT INTO Supplier (ContactName, CompanyName, ContactTitle, City, Country, Phone, Fax) VALUES (@ContactName, @CompanyName, @ContactTitle, @City, @Country, @Phone, @Fax)", connection))
+                using (var command = new SqlCommand("InsertNewSupplier", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ContactName", Supplier.ContactName);
                     command.Parameters.AddWithValue("@CompanyName", Supplier.CompanyName);
                     command.Parameters.AddWithValue("@ContactTitle", Supplier.ContactTitle);
