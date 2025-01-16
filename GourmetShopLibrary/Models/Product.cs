@@ -14,7 +14,7 @@ namespace GourmetShopLibrary.Models
         public string ProductName { get; set; }
         public int SupplierID { get; set; }
         public decimal UnitPrice { get; set; }
-        public int Package { get; set; }
+        public string Package { get; set; }
         public bool IsDiscontinued { get; set; }
     }
 }

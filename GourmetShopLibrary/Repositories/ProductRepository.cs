@@ -24,24 +24,22 @@ namespace GourmetShopLibrary.Repositories
             var products = new List<Product>();
             using (var connection = new SqlConnection(_connectionString))
             {
+                SqlCommand cmd = new SqlCommand("GetAllProducts", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
                 connection.Open();
-                using (var command = new SqlCommand("SELECT * FROM Product", connection))
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    using (var reader = command.ExecuteReader())
+                    products.Add(new Product
                     {
-                        while (reader.Read())
-                        {
-                            products.Add(new Product
-                            {
-                                ProductID = reader.GetInt32(0),
-                                ProductName = reader.GetString(1),
-                                SupplierID = reader.GetInt32(2),
-                                UnitPrice = reader.GetDecimal(3),
-                                Package = reader.GetInt32(4),
-                                IsDiscontinued = reader.GetBoolean(5)
-                            });
-                        }
-                    }
+                        ProductID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1),
+                        SupplierID = reader.GetInt32(2),
+                        UnitPrice = reader.GetDecimal(3),
+                        Package = reader.GetString(4),
+                        IsDiscontinued = reader.GetBoolean(5)
+                    });
                 }
             }
             return products;
@@ -65,7 +63,7 @@ namespace GourmetShopLibrary.Repositories
                                 ProductName = reader.GetString(1),
                                 SupplierID = reader.GetInt32(2),
                                 UnitPrice = reader.GetDecimal(3),
-                                Package = reader.GetInt32(4),
+                                Package = reader.GetString(4),
                                 IsDiscontinued = reader.GetBoolean(5)
                             };
                         }
