@@ -34,15 +34,31 @@ namespace GourmetShopLibrary.Repositories
                     Suppliers.Add(new Supplier
                     {
                         SupplierID = reader.GetInt32(0),
-                        CompanyName = reader.GetString(1),
-                        ContactName = reader.GetString(2),
-                        ContactTitle = reader.GetString(3),
-                        City = reader.GetString(4),
-                        Country = reader.GetString(5),
-                        Phone = reader.GetString(6),
-                        Fax = reader.GetString(7)
+                        CompanyName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                        ContactName = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                        ContactTitle = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                        City = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                        Country = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                        Phone = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                        Fax = reader.IsDBNull(7) ? string.Empty : reader.GetString(7)
                     });
                 }
+
+
+                //while (reader.Read())
+                //{
+                //    Suppliers.Add(new Supplier
+                //    {
+                //        SupplierID = reader.GetInt32(0),
+                //        CompanyName = reader.GetString(1),
+                //        ContactName = reader.GetString(2),
+                //        ContactTitle = reader.GetString(3),
+                //        City = reader.GetString(4),
+                //        Country = reader.GetString(5),
+                //        Phone = reader.GetString(6),
+                //        Fax = reader.GetString(7)
+                //    });
+                //}
             }
             return Suppliers;
         }
