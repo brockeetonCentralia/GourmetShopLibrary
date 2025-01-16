@@ -8,7 +8,7 @@ GO
 -- Create date: <1/7/2025>
 -- Description:	<Stored procedure to input new products into the product table.>
 -- =============================================
-CREATE PROCEDURE InsertNewProduct
+ALTER PROCEDURE InsertNewProduct
 	@ProductName NVARCHAR(50),
 	@SupplierId INT,
 	@UnitPrice	DECIMAL(12,2),
@@ -17,6 +17,6 @@ CREATE PROCEDURE InsertNewProduct
 
 AS
 BEGIN
-	INSERT INTO Product (ProductName, SupplierId, UnitPrice, Package, IsDiscontinued) VALUES (@ProductName, @SupplierId, @UnitPrice, @Package, @IsDiscontinued); 
+	INSERT INTO Product ( ProductName, SupplierId, UnitPrice, Package, IsDiscontinued) VALUES ( @ProductName, @SupplierId, @UnitPrice, @Package, @IsDiscontinued); 
 END
 GO

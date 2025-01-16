@@ -78,8 +78,9 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("INSERT INTO Product (ProductName, SupplierID, UnitPrice, Package, IsDiscontinued) VALUES (@ProductName, @SupplierID, @UnitPrice, @Package, @IsDiscontinued)", connection))
+                using (var command = new SqlCommand("InsertNewProduct", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ProductName", product.ProductName);
                     command.Parameters.AddWithValue("@SupplierID", product.SupplierID);
                     command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);

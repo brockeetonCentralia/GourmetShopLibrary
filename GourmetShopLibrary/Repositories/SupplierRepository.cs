@@ -3,6 +3,7 @@ using GourmetShopLibrary.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,26 +24,23 @@ namespace GourmetShopLibrary.Repositories
             var Suppliers = new List<Supplier>();
             using (var connection = new SqlConnection(_connectionString))
             {
+                SqlCommand cmd = new SqlCommand("GetAllSuppliers", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
                 connection.Open();
-                using (var command = new SqlCommand("SELECT * FROM Supplier", connection))
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    using (var reader = command.ExecuteReader())
+                    Suppliers.Add(new Supplier
                     {
-                        while (reader.Read())
-                        {
-                            Suppliers.Add(new Supplier
-                            {
-                                SupplierID = reader.GetInt32(0),
-                                CompanyName = reader.GetString(1),
-                                ContactName = reader.GetString(2),
-                                ContactTitle = reader.GetString(3),
-                                City = reader.GetString(4),
-                                Country = reader.GetString(5),
-                                Phone = reader.GetString(6),
-                                Fax = reader.GetString(7)
-                            });
-                        }
-                    }
+                        SupplierID = reader.GetInt32(0),
+                        CompanyName = reader.GetString(1),
+                        ContactName = reader.GetString(2),
+                        ContactTitle = reader.GetString(3),
+                        City = reader.GetString(4),
+                        Country = reader.GetString(5),
+                        Phone = reader.GetString(6),
+                        Fax = reader.GetString(7)
+                    });
                 }
             }
             return Suppliers;
