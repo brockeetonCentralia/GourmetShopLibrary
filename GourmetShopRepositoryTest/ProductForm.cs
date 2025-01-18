@@ -44,5 +44,17 @@ namespace GourmetShopRepositoryTest
             repository.AddProduct(product);
             LoadProducts();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            SupplierForm supplierForm = new SupplierForm();
+            supplierForm.ShowDialog();
+            this.Close();
+        }
     }
 }

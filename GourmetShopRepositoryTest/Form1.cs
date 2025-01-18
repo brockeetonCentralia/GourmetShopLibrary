@@ -9,9 +9,26 @@ namespace GourmetShopRepositoryTest
 {
     public partial class Form1 : Form
     {
+        string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+        ISupplierRepository repository;
+        IProductRepository productRepository;
         public Form1()
         {
             InitializeComponent();
+            LoadProducts();
+            LoadSuppliers();
+        }
+        private void LoadSuppliers()
+        {
+            repository = new SupplierRepository(conn);
+            var suppliers = repository.GetAllSuppliers();
+            dataGridView1.DataSource = suppliers.ToList();
+        }
+        private void LoadProducts()
+        {
+            productRepository = new ProductRepository(conn);
+            var products = productRepository.GetAllProducts();
+            dataGridView2.DataSource = products.ToList();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
