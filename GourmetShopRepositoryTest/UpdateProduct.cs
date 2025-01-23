@@ -65,5 +65,21 @@ namespace GourmetShopRepositoryTest
             supplierForm.ShowDialog();
             this.Close();
         }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UpdateSupplier updateSupplier = new UpdateSupplier();
+            updateSupplier.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!deleteProductTextBox.Text.Equals(String.Empty))
+            {
+                repository.DeleteProduct(Convert.ToInt32(deleteProductTextBox.Text));
+                LoadProducts();
+            }
+        }
     }
 }

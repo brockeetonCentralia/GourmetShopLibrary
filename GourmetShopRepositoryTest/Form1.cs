@@ -53,5 +53,11 @@ namespace GourmetShopRepositoryTest
             UpdateProduct updateProduct = new UpdateProduct();
             updateProduct.ShowDialog();
         }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UpdateSupplier updateSupplier = new UpdateSupplier();
+            updateSupplier.ShowDialog();
+        }
     }
 }

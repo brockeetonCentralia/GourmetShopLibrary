@@ -30,8 +30,6 @@
         {
             dataGridView1 = new DataGridView();
             addButton = new Button();
-            button2 = new Button();
-            button3 = new Button();
             companyNameTextBox = new TextBox();
             contactNameTextBox = new TextBox();
             contactTitleTextBox = new TextBox();
@@ -51,8 +49,10 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             productToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem2 = new ToolStripMenuItem();
             supplierToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem1 = new ToolStripMenuItem();
+            editToolStripMenuItem3 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -69,7 +69,7 @@
             // 
             // addButton
             // 
-            addButton.Location = new Point(56, 363);
+            addButton.Location = new Point(222, 339);
             addButton.Margin = new Padding(3, 4, 3, 4);
             addButton.Name = "addButton";
             addButton.Size = new Size(86, 31);
@@ -77,26 +77,6 @@
             addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(149, 363);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(86, 31);
-            button2.TabIndex = 2;
-            button2.Text = "Edit";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(241, 363);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(86, 31);
-            button3.TabIndex = 3;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
             // 
             // companyNameTextBox
             // 
@@ -237,13 +217,13 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 26);
+            toolStripMenuItem1.Size = new Size(116, 26);
             toolStripMenuItem1.Text = "Exit";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // productToolStripMenuItem
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editToolStripMenuItem });
+            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editToolStripMenuItem, editToolStripMenuItem2 });
             productToolStripMenuItem.Name = "productToolStripMenuItem";
             productToolStripMenuItem.Size = new Size(74, 24);
             productToolStripMenuItem.Text = "Product";
@@ -251,13 +231,20 @@
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(224, 26);
-            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Size = new Size(120, 26);
+            editToolStripMenuItem.Text = "Add";
             editToolStripMenuItem.Click += editToolStripMenuItem_Click;
+            // 
+            // editToolStripMenuItem2
+            // 
+            editToolStripMenuItem2.Name = "editToolStripMenuItem2";
+            editToolStripMenuItem2.Size = new Size(120, 26);
+            editToolStripMenuItem2.Text = "Edit";
+            editToolStripMenuItem2.Click += editToolStripMenuItem2_Click;
             // 
             // supplierToolStripMenuItem
             // 
-            supplierToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editToolStripMenuItem1 });
+            supplierToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editToolStripMenuItem1, editToolStripMenuItem3 });
             supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
             supplierToolStripMenuItem.Size = new Size(78, 24);
             supplierToolStripMenuItem.Text = "Supplier";
@@ -266,8 +253,15 @@
             // 
             editToolStripMenuItem1.ForeColor = SystemColors.ButtonShadow;
             editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            editToolStripMenuItem1.Size = new Size(118, 26);
-            editToolStripMenuItem1.Text = "Edit";
+            editToolStripMenuItem1.Size = new Size(120, 26);
+            editToolStripMenuItem1.Text = "Add";
+            // 
+            // editToolStripMenuItem3
+            // 
+            editToolStripMenuItem3.Name = "editToolStripMenuItem3";
+            editToolStripMenuItem3.Size = new Size(120, 26);
+            editToolStripMenuItem3.Text = "Edit";
+            editToolStripMenuItem3.Click += editToolStripMenuItem3_Click;
             // 
             // SupplierForm
             // 
@@ -288,8 +282,6 @@
             Controls.Add(contactTitleTextBox);
             Controls.Add(contactNameTextBox);
             Controls.Add(companyNameTextBox);
-            Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(addButton);
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
@@ -308,8 +300,6 @@
 
         private DataGridView dataGridView1;
         private Button addButton;
-        private Button button2;
-        private Button button3;
         private TextBox companyNameTextBox;
         private TextBox contactNameTextBox;
         private TextBox contactTitleTextBox;
@@ -331,5 +321,7 @@
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem supplierToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
+        private ToolStripMenuItem editToolStripMenuItem2;
+        private ToolStripMenuItem editToolStripMenuItem3;
     }
 }

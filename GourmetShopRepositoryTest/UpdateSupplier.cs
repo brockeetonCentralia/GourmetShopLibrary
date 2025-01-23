@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace GourmetShopRepositoryTest
 {
-    public partial class SupplierForm : Form
+    public partial class UpdateSupplier : Form
     {
         string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
         ISupplierRepository repository;
-        public SupplierForm()
+        public UpdateSupplier()
         {
             InitializeComponent();
             LoadSuppliers();
@@ -31,10 +31,11 @@ namespace GourmetShopRepositoryTest
             dataGridView1.DataSource = suppliers.ToList();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             var supplier = new Supplier
             {
+                SupplierID = int.Parse(supplierIdTextBox.Text),
                 CompanyName = companyNameTextBox.Text,
                 ContactName = contactNameTextBox.Text,
                 ContactTitle = contactTitleTextBox.Text,
@@ -44,34 +45,42 @@ namespace GourmetShopRepositoryTest
                 Fax = faxTextBox.Text
             };
 
-            repository.AddSupplier(supplier);
+            repository.UpdateSupplier(supplier);
             LoadSuppliers();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductForm productForm = new ProductForm();
             productForm.ShowDialog();
             this.Close();
         }
 
-        private void editToolStripMenuItem3_Click(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateSupplier updateSupplierForm = new UpdateSupplier();
-            updateSupplierForm.ShowDialog();
+            UpdateProduct updateProduct = new UpdateProduct();
+            updateProduct.ShowDialog();
             this.Close();
         }
 
-        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            UpdateProduct updateProductForm = new UpdateProduct();
-            updateProductForm.ShowDialog();
-            this.Close();
+            SupplierForm supplierForm = new SupplierForm();
+            supplierForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!deleteSupplierIdTextBox.Text.Equals(String.Empty))
+            {
+                repository.DeleteSupplier(Convert.ToInt32(deleteSupplierIdTextBox.Text));
+                LoadSuppliers();
+            }
         }
     }
 }

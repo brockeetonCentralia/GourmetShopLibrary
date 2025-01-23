@@ -43,8 +43,10 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             productToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
             supplierToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
+            editToolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -52,17 +54,19 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(319, 49);
+            dataGridView1.Location = new Point(365, 65);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(469, 355);
+            dataGridView1.Size = new Size(536, 473);
             dataGridView1.TabIndex = 0;
             // 
             // addButton
             // 
-            addButton.Location = new Point(191, 296);
+            addButton.Location = new Point(218, 395);
+            addButton.Margin = new Padding(3, 4, 3, 4);
             addButton.Name = "addButton";
-            addButton.Size = new Size(75, 23);
+            addButton.Size = new Size(86, 31);
             addButton.TabIndex = 1;
             addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = true;
@@ -70,66 +74,70 @@
             // 
             // productNameTextBox
             // 
-            productNameTextBox.Location = new Point(166, 157);
+            productNameTextBox.Location = new Point(190, 209);
+            productNameTextBox.Margin = new Padding(3, 4, 3, 4);
             productNameTextBox.Name = "productNameTextBox";
-            productNameTextBox.Size = new Size(100, 23);
+            productNameTextBox.Size = new Size(114, 27);
             productNameTextBox.TabIndex = 4;
             // 
             // supplierTextBox
             // 
-            supplierTextBox.Location = new Point(166, 186);
+            supplierTextBox.Location = new Point(190, 248);
+            supplierTextBox.Margin = new Padding(3, 4, 3, 4);
             supplierTextBox.Name = "supplierTextBox";
-            supplierTextBox.Size = new Size(100, 23);
+            supplierTextBox.Size = new Size(114, 27);
             supplierTextBox.TabIndex = 5;
             // 
             // priceTextBox
             // 
-            priceTextBox.Location = new Point(166, 215);
+            priceTextBox.Location = new Point(190, 287);
+            priceTextBox.Margin = new Padding(3, 4, 3, 4);
             priceTextBox.Name = "priceTextBox";
-            priceTextBox.Size = new Size(100, 23);
+            priceTextBox.Size = new Size(114, 27);
             priceTextBox.TabIndex = 6;
             // 
             // stockTextBox
             // 
-            stockTextBox.Location = new Point(166, 244);
+            stockTextBox.Location = new Point(190, 325);
+            stockTextBox.Margin = new Padding(3, 4, 3, 4);
             stockTextBox.Name = "stockTextBox";
-            stockTextBox.Size = new Size(100, 23);
+            stockTextBox.Size = new Size(114, 27);
             stockTextBox.TabIndex = 7;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(70, 162);
+            label1.Location = new Point(80, 216);
             label1.Name = "label1";
-            label1.Size = new Size(84, 15);
+            label1.Size = new Size(104, 20);
             label1.TabIndex = 8;
             label1.Text = "Product Name";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(88, 191);
+            label2.Location = new Point(101, 255);
             label2.Name = "label2";
-            label2.Size = new Size(64, 15);
+            label2.Size = new Size(83, 20);
             label2.TabIndex = 9;
             label2.Text = "Supplier ID";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(98, 220);
+            label3.Location = new Point(112, 293);
             label3.Name = "label3";
-            label3.Size = new Size(58, 15);
+            label3.Size = new Size(72, 20);
             label3.TabIndex = 10;
             label3.Text = "Unit Price";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(106, 249);
+            label4.Location = new Point(121, 332);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(51, 15);
+            label4.Size = new Size(63, 20);
             label4.TabIndex = 11;
             label4.Text = "Package";
             // 
@@ -139,8 +147,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(914, 30);
             menuStrip1.TabIndex = 12;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -148,49 +156,63 @@
             // 
             fIleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             fIleToolStripMenuItem.Name = "fIleToolStripMenuItem";
-            fIleToolStripMenuItem.Size = new Size(37, 20);
+            fIleToolStripMenuItem.Size = new Size(46, 24);
             fIleToolStripMenuItem.Text = "FIle";
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(92, 22);
+            toolStripMenuItem1.Size = new Size(116, 26);
             toolStripMenuItem1.Text = "Exit";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // productToolStripMenuItem
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2 });
+            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, editToolStripMenuItem });
             productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(61, 20);
+            productToolStripMenuItem.Size = new Size(74, 24);
             productToolStripMenuItem.Text = "Product";
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.ForeColor = SystemColors.AppWorkspace;
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(180, 22);
-            toolStripMenuItem2.Text = "Edit";
+            toolStripMenuItem2.Size = new Size(224, 26);
+            toolStripMenuItem2.Text = "Add";
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(224, 26);
+            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // supplierToolStripMenuItem
             // 
-            supplierToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem3 });
+            supplierToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem3, editToolStripMenuItem1 });
             supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            supplierToolStripMenuItem.Size = new Size(62, 20);
+            supplierToolStripMenuItem.Size = new Size(78, 24);
             supplierToolStripMenuItem.Text = "Supplier";
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(94, 22);
-            toolStripMenuItem3.Text = "Edit";
+            toolStripMenuItem3.Size = new Size(224, 26);
+            toolStripMenuItem3.Text = "Add";
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
+            // 
+            // editToolStripMenuItem1
+            // 
+            editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            editToolStripMenuItem1.Size = new Size(224, 26);
+            editToolStripMenuItem1.Text = "Edit";
+            editToolStripMenuItem1.Click += editToolStripMenuItem1_Click;
             // 
             // ProductForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -203,6 +225,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ProductForm";
             Text = "ProductForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -231,5 +254,7 @@
         private ToolStripMenuItem supplierToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem3;
         private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem1;
     }
 }

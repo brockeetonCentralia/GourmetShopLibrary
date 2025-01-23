@@ -102,8 +102,9 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("UPDATE Supplier SET ContactName = @ContactName, @CompanyName = @CompanyName, ContactTitle = @ContactTitle, City = @City, Country = @Country, Phone = @Phone, Fax = @Fax WHERE SupplierID = @SupplierID", connection))
+                using (var command = new SqlCommand("UpdateSupplier", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ContactName", Supplier.ContactName);
                     command.Parameters.AddWithValue("@CompanyName", Supplier.CompanyName);
                     command.Parameters.AddWithValue("@ContactTitle", Supplier.ContactTitle);
@@ -122,8 +123,9 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("DELETE FROM Supplier WHERE SupplierID = @SupplierID", connection))
+                using (var command = new SqlCommand("DeleteSupplier", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@SupplierID", id);
                     command.ExecuteNonQuery();
                 }

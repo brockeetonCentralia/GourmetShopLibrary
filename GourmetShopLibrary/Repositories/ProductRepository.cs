@@ -115,8 +115,9 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("DELETE FROM Product WHERE ProductID = @ProductID", connection))
+                using (var command = new SqlCommand("DeleteProduct", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ProductID", id);
                     command.ExecuteNonQuery();
                 }
