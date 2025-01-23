@@ -125,6 +125,7 @@ namespace GourmetShopLibrary.Repositories
                 connection.Open();
                 using (var command = new SqlCommand("DeleteSupplier", connection))
                 {
+                    ///error is because trying to delete a supplier that a product is using. 
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@SupplierID", id);
                     command.ExecuteNonQuery();
