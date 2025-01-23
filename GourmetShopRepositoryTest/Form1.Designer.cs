@@ -37,6 +37,7 @@
             toolStripMenuItem2 = new ToolStripMenuItem();
             dataGridView1 = new DataGridView();
             dataGridView2 = new DataGridView();
+            editToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -48,8 +49,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(914, 30);
+            menuStrip1.Size = new Size(800, 24);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -57,41 +57,41 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem3 });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(116, 26);
+            toolStripMenuItem3.Size = new Size(92, 22);
             toolStripMenuItem3.Text = "Exit";
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // productToolStripMenuItem
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, editToolStripMenuItem });
             productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(74, 24);
+            productToolStripMenuItem.Size = new Size(61, 20);
             productToolStripMenuItem.Text = "Product";
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 26);
-            toolStripMenuItem1.Text = "Edit";
+            toolStripMenuItem1.Size = new Size(180, 22);
+            toolStripMenuItem1.Text = "Add";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // supplierToolStripMenuItem
             // 
             supplierToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2 });
             supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            supplierToolStripMenuItem.Size = new Size(78, 24);
+            supplierToolStripMenuItem.Size = new Size(62, 20);
             supplierToolStripMenuItem.Text = "Supplier";
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(224, 26);
+            toolStripMenuItem2.Size = new Size(94, 22);
             toolStripMenuItem2.Text = "Edit";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
@@ -100,11 +100,12 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(464, 93);
+            dataGridView1.Location = new Point(406, 70);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(438, 448);
+            dataGridView1.Size = new Size(383, 336);
             dataGridView1.TabIndex = 3;
             // 
             // dataGridView2
@@ -112,22 +113,29 @@
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(12, 93);
+            dataGridView2.Location = new Point(10, 70);
+            dataGridView2.Margin = new Padding(3, 2, 3, 2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(422, 448);
+            dataGridView2.Size = new Size(369, 336);
             dataGridView2.TabIndex = 4;
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(180, 22);
+            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
@@ -148,5 +156,6 @@
         private ToolStripMenuItem toolStripMenuItem3;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
+        private ToolStripMenuItem editToolStripMenuItem;
     }
 }

@@ -96,8 +96,9 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("UPDATE Product SET ProductName = @ProductName, SupplierID = @SupplierID, UnitPrice = @UnitPrice, Package = @Package, IsDiscontinued = @IsDiscontinued WHERE ProductID = @ProductID", connection))
+                using (var command = new SqlCommand("UpdateProduct", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ProductName", product.ProductName);
                     command.Parameters.AddWithValue("@SupplierID", product.SupplierID);
                     command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
