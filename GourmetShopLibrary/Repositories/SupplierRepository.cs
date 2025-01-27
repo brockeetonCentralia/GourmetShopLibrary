@@ -117,19 +117,39 @@ namespace GourmetShopLibrary.Repositories
                 }
             }
         }
-
         public void DeleteSupplier(int id)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            try
             {
-                connection.Open();
-                using (var command = new SqlCommand("DeleteSupplier", connection))
+                using (var connection = new SqlConnection(_connectionString))
                 {
-                    ///error is because trying to delete a supplier that a product is using. 
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@SupplierID", id);
-                    command.ExecuteNonQuery();
+                    connection.Open();
+
+                    using (var command = new SqlCommand("CheckProduct", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierID", id);
+                        int productCount = (int)command.ExecuteScalar();
+
+                        if (productCount > 0)
+                        {
+                            throw new InvalidOperationException("Supplier is being used by a product");
+                        }
+                    }
+
+                    using (var command = new SqlCommand("DeleteSupplier", connection))
+                    {
+                        ///error is because trying to delete a supplier that a product is using. 
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierID", id);
+                        command.ExecuteNonQuery();
+                    }
                 }
+
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new Exception("Supplier is being used by a product.");
             }
         }
     }

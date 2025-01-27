@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GourmetShopLibrary.Repositories.SupplierRepository;
 
 namespace GourmetShopRepositoryTest
 {
@@ -76,6 +77,14 @@ namespace GourmetShopRepositoryTest
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                repository.DeleteSupplier(int.Parse(deleteSupplierIdTextBox.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             if (!deleteSupplierIdTextBox.Text.Equals(String.Empty))
             {
                 repository.DeleteSupplier(Convert.ToInt32(deleteSupplierIdTextBox.Text));
