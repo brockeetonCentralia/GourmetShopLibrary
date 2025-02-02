@@ -18,7 +18,7 @@ namespace GourmetShopLibrary
         {
             _connectionString = connectionString;
         }
-        public bool ValidateUser(string username, string password)
+        public (bool isValidUser, string UserRole) ValidateUser(string username, string password)
         {
 
             using (var connection = new SqlConnection(_connectionString))
@@ -27,9 +27,9 @@ namespace GourmetShopLibrary
                 parameters.Add("@Username", username, DbType.String);
                 parameters.Add("@Password", password, DbType.String);
 
-                int result = connection.QuerySingle<int>("ValidateUserLogin", parameters, commandType: CommandType.StoredProcedure);
+                var result = connection.QuerySingle<(int Result, string UserRole)>("ValidateUserLogin", parameters, commandType: CommandType.StoredProcedure);
 
-                return result == 1;
+                return (result.Result == 1, result.UserRole);
             }
         }
     }

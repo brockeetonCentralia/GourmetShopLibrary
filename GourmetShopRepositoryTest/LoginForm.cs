@@ -69,21 +69,23 @@ namespace GourmetShopRepositoryTest
             }
 
             ValidateUserLogin validateUserLogin = new ValidateUserLogin(conn);
+            var (isValidUser, userRole) = validateUserLogin.ValidateUser(username, password);
 
-            if (validateUserLogin.ValidateUser(username, password))
+            if (isValidUser)
             {
-                /////this needs to show user interface once created
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (validateUserLogin.ValidateUser(username, password))
-            {
-                Form1 form1 = new Form1();
-                form1.Show();
                 this.Hide();
+                MessageBox.Show($"Login successful! Welcome {userRole}.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                /////this needs to show user interface once created
+                ///
+                if (userRole == "Admin")
+                {
+                    Form1 adminForm = new Form1();
+                    adminForm.Show();
+                }
+                else if (userRole == "User")
+                {
+
+                }
             }
             else
             {
