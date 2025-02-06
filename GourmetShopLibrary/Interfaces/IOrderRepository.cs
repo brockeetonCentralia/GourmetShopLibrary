@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace GourmetShopLibrary.Interfaces
 {
-    internal interface IOrderRepistory
+    public interface IOrderRepository
     {
         void AddOrder(Order order);
-        void RemoveOrder(Order order);
         Order GetOrderById(int id);
         List<Order> GetAllOrders();
     }
