@@ -36,9 +36,10 @@
             // 
             // loginBtn
             // 
-            loginBtn.Location = new Point(308, 264);
+            loginBtn.Location = new Point(270, 198);
+            loginBtn.Margin = new Padding(3, 2, 3, 2);
             loginBtn.Name = "loginBtn";
-            loginBtn.Size = new Size(94, 29);
+            loginBtn.Size = new Size(82, 22);
             loginBtn.TabIndex = 0;
             loginBtn.Text = "Login";
             loginBtn.UseVisualStyleBackColor = true;
@@ -48,18 +49,19 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 28F);
-            label1.Location = new Point(243, 65);
+            label1.Location = new Point(213, 49);
             label1.Name = "label1";
-            label1.Size = new Size(220, 62);
+            label1.Size = new Size(179, 51);
             label1.TabIndex = 1;
             label1.Text = "Welcome";
             // 
             // userNameTxtBox
             // 
             userNameTxtBox.ForeColor = SystemColors.MenuText;
-            userNameTxtBox.Location = new Point(260, 169);
+            userNameTxtBox.Location = new Point(228, 127);
+            userNameTxtBox.Margin = new Padding(3, 2, 3, 2);
             userNameTxtBox.Name = "userNameTxtBox";
-            userNameTxtBox.Size = new Size(190, 27);
+            userNameTxtBox.Size = new Size(167, 23);
             userNameTxtBox.TabIndex = 2;
             userNameTxtBox.Enter += userNameTxtBox_Enter;
             userNameTxtBox.Leave += userNameTxtBox_Leave;
@@ -67,22 +69,24 @@
             // passwordTxtBox
             // 
             passwordTxtBox.ForeColor = SystemColors.MenuText;
-            passwordTxtBox.Location = new Point(260, 218);
+            passwordTxtBox.Location = new Point(228, 164);
+            passwordTxtBox.Margin = new Padding(3, 2, 3, 2);
             passwordTxtBox.Name = "passwordTxtBox";
-            passwordTxtBox.Size = new Size(190, 27);
+            passwordTxtBox.Size = new Size(167, 23);
             passwordTxtBox.TabIndex = 3;
             passwordTxtBox.Enter += passwordTxtBox_Enter;
             passwordTxtBox.Leave += passwordTxtBox_Leave;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(575, 347);
             Controls.Add(passwordTxtBox);
             Controls.Add(userNameTxtBox);
             Controls.Add(label1);
             Controls.Add(loginBtn);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
             Text = "LoginForm";
             Load += LoginForm_Load_1;

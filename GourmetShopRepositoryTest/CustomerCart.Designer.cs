@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            CartGridView = new DataGridView();
             Purchasebtn = new Button();
             Backtoformbtn = new Button();
             label1 = new Label();
@@ -40,16 +40,16 @@
             Taxlbl = new Label();
             TotalAmountlbl = new Label();
             Removeitemcartbtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CartGridView).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // CartGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(458, 77);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(313, 343);
-            dataGridView1.TabIndex = 0;
+            CartGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CartGridView.Location = new Point(458, 77);
+            CartGridView.Name = "CartGridView";
+            CartGridView.Size = new Size(313, 343);
+            CartGridView.TabIndex = 0;
             // 
             // Purchasebtn
             // 
@@ -169,17 +169,17 @@
             Controls.Add(label1);
             Controls.Add(Backtoformbtn);
             Controls.Add(Purchasebtn);
-            Controls.Add(dataGridView1);
+            Controls.Add(CartGridView);
             Name = "CustomerCart";
             Text = "CustomerCart";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CartGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView CartGridView;
         private Button Purchasebtn;
         private Button Backtoformbtn;
         private Label label1;
