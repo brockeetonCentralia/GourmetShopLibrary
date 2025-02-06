@@ -4,22 +4,39 @@ SET QUOTED_IDENTIFIER ON
 GO
 --CHANGE THE ALTER TO CREATE
 ALTER PROCEDURE ValidateUserLogin
-	@userName VARCHAR(50),
-	@passWord VARCHAR(50)
+	@UserLogin NVARCHAR(25),
+	@UserPassword NVARCHAR(25)
 AS
 BEGIN
 
 	SET NOCOUNT ON;
 
-	DECLARE @UserRole NVARCHAR(20);
+	DECLARE @UserID INT;
+	DECLARE @RoleID INT;
 
-	IF EXISTS (SELECT 1 FROM Users WHERE userName = @userName AND passWord = @passWord)
-		BEGIN
-			SELECT @UserRole = Role FROM Users WHERE userName = @userName;
-			SELECT 1 AS Result, @UserRole AS UserRole;
-		END
-	ELSE
-		SELECT 0 As Result, NULL AS UserRole;
+	--Check if user exists and password matches
+
+	SELECT @UserID = u.UserID
+	FROM Users u
+	WHERE u.UserLogin = @UserLogin AND u.UserPassword = @UserPassword;
+
+	--If user does not exist, return
+	IF @UserID IS NULL
+    BEGIN
+        PRINT 'Invalid username or password';
+        RETURN;
+    END
+	--Get user's role
+	SELECT TOP 1 @RoleID = r.RoleID
+	FROM User_Roles ur
+	JOIN Roles r ON ur.RoleID = r.RoleID
+	WHERE ur.UserID = @UserID
+
+	--Return user role
+	IF @RoleID IS NOT NULL
+		PRINT 'RoleID: ' + CAST(@RoleID AS NVARCHAR(10));
+    ELSE
+        PRINT 'User has no assigned role';
 
 END
 GO
