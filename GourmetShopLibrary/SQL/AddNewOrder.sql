@@ -8,19 +8,19 @@ GO
 -- Create date: 02/06/2025
 -- Description:	Add New Order
 -- =============================================
-CREATE PROCEDURE AddOrder 
+CREATE PROCEDURE AddNewOrder 
 	-- Add the parameters for the stored procedure here
 	(@OrderDate datetime, 
 	@OrderNumber nvarchar(10),
-	@CustomerID int,
+	@UserID int,
 	@TotalAmount decimal(12,2))
 
 AS
 BEGIN
 
 		INSERT INTO [dbo].[Order]
-		(OrderDate, OrderNumber, CustomerId, TotalAmount)
+		(OrderDate, OrderNumber, UserId, TotalAmount)
 		VALUES
-		( @OrderDate, @OrderNumber, @CustomerID, @TotalAmount)
+		( @OrderDate, @OrderNumber, @UserID, @TotalAmount)
 END
 GO

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace GourmetShopLibrary.Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class UserRepository : ICustomerRepository
     {
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(User customer)
         {
             throw new NotImplementedException();
         }
@@ -20,7 +20,7 @@ namespace GourmetShopLibrary.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Customer> GetAllCustomers()
+        public IEnumerable<User> GetAllCustomers()
         {
             throw new NotImplementedException();
         }
@@ -30,7 +30,7 @@ namespace GourmetShopLibrary.Repositories
             throw new NotImplementedException();
         }
 
-        public void UpdateCustomer(Customer customer)
+        public void UpdateCustomer(User customer)
         {
             throw new NotImplementedException();
         }
