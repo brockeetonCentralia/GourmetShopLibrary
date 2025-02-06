@@ -7,10 +7,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GourmetShopLibrary.Models
 {
-    public class Customer
+    public class User
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string City { get; set; }
