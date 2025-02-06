@@ -18,19 +18,30 @@ namespace GourmetShopLibrary
         {
             _connectionString = connectionString;
         }
-        public (bool isValidUser, string UserRole) ValidateUser(string username, string password)
+        public int ValidateUser(string userLogin, string userPassword)
         {
-
-            using (var connection = new SqlConnection(_connectionString))
+            int roleID = 0;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                var parameters = new DynamicParameters();
-                parameters.Add("@Username", username, DbType.String);
-                parameters.Add("@Password", password, DbType.String);
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("ValidateUserLogin", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@UserLogin", userLogin);
+                    command.Parameters.AddWithValue("@UserPassword", userPassword);
 
-                var result = connection.QuerySingle<(int Result, string UserRole)>("ValidateUserLogin", parameters, commandType: CommandType.StoredProcedure);
-
-                return (result.Result == 1, result.UserRole);
+                    SqlParameter roleParam = new SqlParameter
+                    {
+                        ParameterName = "@RoleID",
+                        SqlDbType = SqlDbType.Int,
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(roleParam);
+                    command.ExecuteNonQuery();
+                    roleID = (int)roleParam.Value;
+                }
             }
+            return roleID;
         }
     }
 }
