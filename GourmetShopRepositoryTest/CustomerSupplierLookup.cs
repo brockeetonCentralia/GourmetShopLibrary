@@ -49,7 +49,7 @@ namespace GourmetShopRepositoryTest
         private void AddtoCartbtn_Click(object sender, EventArgs e)
         {
             var supplierID = int.Parse(SupplierIDtxt.Text);
-            var product = GetbySupplierID(supplierID);
+            var product = ProductDGV.SelectedRows[0].DataBoundItem as Product;
             var cartlist = new List<Product>();
 
             cartlist.Add(product);
