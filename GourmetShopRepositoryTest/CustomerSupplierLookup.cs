@@ -22,7 +22,7 @@ namespace GourmetShopRepositoryTest
 
         public CustomerSupplierLookup()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["GourmetShop"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
 
             InitializeComponent();
             _productRepository = new ProductRepository(connectionString);
