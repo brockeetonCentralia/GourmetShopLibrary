@@ -15,7 +15,6 @@ namespace GourmetShopRepositoryTest
     public partial class LoginForm : Form
     {
         string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
-        ValidateUserLogin validateUserLogin;
         public LoginForm()
         {
             InitializeComponent();
@@ -59,37 +58,33 @@ namespace GourmetShopRepositoryTest
 
         private void loginBtn_Click_1(object sender, EventArgs e)
         {
-            string username = userNameTxtBox.Text.Trim();
-            string password = passwordTxtBox.Text.Trim();
+            string userLogin = userNameTxtBox.Text;
+            string userPassword = passwordTxtBox.Text;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            ValidateUserLogin validateUserLogin = new ValidateUserLogin(conn);
+            int roleID = validateUserLogin.ValidateUser(userLogin, userPassword);
+
+            if (string.IsNullOrWhiteSpace(userLogin) || string.IsNullOrWhiteSpace(userPassword))
             {
                 MessageBox.Show("Please enter username and password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            ValidateUserLogin validateUserLogin = new ValidateUserLogin(conn);
-            var (isValidUser, userRole) = validateUserLogin.ValidateUser(username, password);
-
-            if (isValidUser)
+            if (roleID == 1)
             {
+                string role = (roleID == 1) ? "Admin" : "Unknown";
                 this.Hide();
-                MessageBox.Show($"Login successful! Welcome {userRole}.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                /////this needs to show user interface once created
-                ///
-                if (userRole == "Admin")
-                {
-                    Form1 adminForm = new Form1();
-                    adminForm.Show();
-                    this.Close(); //closes current form
-                }
-                else if (userRole == "User")
-                {
-                    CustomerSupplierLookup customerSupplierLookup = new CustomerSupplierLookup(); 
-                    customerSupplierLookup.Show(); // shows the customer supplier form for users
-                    this.Close(); // closes this form
-                    
-                }
+                MessageBox.Show($"Login successful! Welcome {role}.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Form1 adminForm = new Form1();
+                adminForm.Show();
+            }
+            if (roleID == 2)
+            {
+                string role = (roleID == 2) ? "Customer" : "Unknown";
+                this.Hide();
+                MessageBox.Show($"Login successful! Welcome {role}.", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomerSupplierLookup customerSupplierLookup = new CustomerSupplierLookup();
+                customerSupplierLookup.Show();
             }
             else
             {

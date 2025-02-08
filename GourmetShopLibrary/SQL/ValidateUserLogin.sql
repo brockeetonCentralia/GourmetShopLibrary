@@ -23,20 +23,17 @@ BEGIN
 	--If user does not exist, return
 	IF @UserID IS NULL
     BEGIN
-        PRINT 'Invalid username or password';
+        SET @RoleID = NULL;
         RETURN;
     END
 	--Get user's role
 	SELECT TOP 1 @RoleID = r.RoleID
 	FROM User_Roles ur
-	JOIN Roles r ON ur.RoleID = r.RoleID
 	WHERE ur.UserID = @UserID
 
 	--Return user role
-	IF @RoleID IS NOT NULL
-		PRINT 'RoleID: ' + CAST(@RoleID AS NVARCHAR(10));
-    ELSE
-        PRINT 'User has no assigned role';
+    IF @RoleID IS NULL
+        SET @RoleID = 0;
 
 END
 GO
