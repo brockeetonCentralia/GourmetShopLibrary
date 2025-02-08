@@ -5,14 +5,14 @@ GO
 --CHANGE THE ALTER TO CREATE
 ALTER PROCEDURE ValidateUserLogin
 	@UserLogin NVARCHAR(25),
-	@UserPassword NVARCHAR(25),
-	@RoleID INT OUTPUT
+	@UserPassword NVARCHAR(25)
 AS
 BEGIN
 
 	SET NOCOUNT ON;
 
 	DECLARE @UserID INT;
+	DECLARE @RoleID INT;
 
 	--Check if user exists and password matches
 

@@ -8,29 +8,29 @@ using System.Threading.Tasks;
 
 namespace GourmetShopLibrary.Repositories
 {
-    public class UserRepository : ICustomerRepository
+    public class UserRepository : IUserRepository
     {
-        public void AddCustomer(User customer)
+        public void AddUser(User customer)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteCustomerById(int id)
+        public void DeleteUserById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> GetAllCustomers()
+        public IEnumerable<User> GetAllUsers()
         {
             throw new NotImplementedException();
         }
 
-        public Product GetCustomerById(int id)
+        public Product GetUserById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateCustomer(User customer)
+        public void UpdateUser(User customer)
         {
             throw new NotImplementedException();
         }
