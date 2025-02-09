@@ -39,14 +39,56 @@ namespace GourmetShopLibrary.Repositories
             }
         }
 
-        public List<OrderItem> GetAllOrderItems()
+        public IEnumerable<OrderItem> GetAllOrderItems()
         {
-            throw new NotImplementedException();
+            var orderItems = new List<OrderItem>();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("GetAllOrderItems", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    orderItems.Add(new OrderItem
+                    {
+                        OrderID = reader.GetInt32(0),
+                        ProductID = reader.GetInt32(1),
+                        UnitPrice = reader.GetDecimal(2),
+                        Quantity = reader.GetInt32(3)
+                    });
+                }
+            }
+            return orderItems;
         }
 
         public OrderItem GetOrderItemById(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("GetOderItemByID", connection))
+                {
+                    command.Parameters.AddWithValue("@ID", id);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new OrderItem
+                            {
+                                OrderID = reader.GetInt32(0),
+                                ProductID = reader.GetInt32(1),
+                                UnitPrice = reader.GetDecimal(2),
+                                Quantity = reader.GetInt32(3)
+                            };
+                          
+
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 

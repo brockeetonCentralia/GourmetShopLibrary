@@ -62,7 +62,32 @@ namespace GourmetShopLibrary.Repositories
 
         public Order GetOrderById(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("GetOderByID", connection))
+                {
+                    command.Parameters.AddWithValue("@ID", id);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Order
+                            {
+                                OrderID = reader.GetInt32(0),
+                                OrderDate = reader.GetDateTime(1),
+                                OrderNumber = reader.GetString(2),
+                                UserID = reader.GetInt32(3),
+                                TotalAmount = reader.GetDecimal(4)
+                            };
+                            
+                        }
+                    }
+                }
+            }
+            return null;
         }
+
+       
     }
 }
