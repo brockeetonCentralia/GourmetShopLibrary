@@ -47,8 +47,8 @@ namespace GourmetShopRepositoryTest
                 //totalItems+= product.Quantity; somehow need to get quantity
             }
 
-            TotalAmountlbl.Text = totalAmount.ToString();
-            TotalItemslbl.Text = totalItems.ToString();
+            lblAmount.Text = totalAmount.ToString();
+            lblDataViewAmount.Text = totalItems.ToString();
         }
 
         private void Backtoformbtn_Click(object sender, EventArgs e)
