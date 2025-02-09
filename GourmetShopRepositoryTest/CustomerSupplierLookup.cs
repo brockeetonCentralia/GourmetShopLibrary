@@ -26,6 +26,7 @@ namespace GourmetShopRepositoryTest
 
             InitializeComponent();
             _productRepository = new ProductRepository(connectionString);
+            // initalize second form here
         }
 
         private void SearchSupplierID_Click(object sender, EventArgs e)
