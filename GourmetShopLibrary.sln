@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GourmetShopLibrary", "Gourm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GourmetShopRepositoryTest", "GourmetShopRepositoryTest\GourmetShopRepositoryTest.csproj", "{E57897BB-EC17-4C02-B148-48031460DF0E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{CFD6C827-B88E-4114-B1E0-96E50D4E3721}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Desktop\Gourment Shop Customer Interface Documentation.docx = ..\..\..\OneDrive\Desktop\Gourment Shop Customer Interface Documentation.docx
+		..\..\..\OneDrive\Desktop\Gourmet Shop Customer Interface Task List.docx = ..\..\..\OneDrive\Desktop\Gourmet Shop Customer Interface Task List.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
