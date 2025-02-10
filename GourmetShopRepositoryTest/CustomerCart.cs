@@ -17,8 +17,6 @@ namespace GourmetShopRepositoryTest
     {
         private CartService _cartService;
 
-        //private List<Product> cartlist = new List<Product>();
-        //private CustomerSupplierLookup _CustomerSupplierLookup;
         string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
 
         public CustomerCart(CartService cartService)
@@ -36,8 +34,8 @@ namespace GourmetShopRepositoryTest
 
             foreach (var product in _cartService.GetProducts())
             {
-                totalAmount += product.UnitPrice;//need to get quantity somehow
-                //totalItems+= product.Quantity; somehow need to get quantity
+                totalAmount += product.UnitPrice;
+                totalItems = _cartService.Count();
             }
 
             lblAmount.Text = totalAmount.ToString();
@@ -55,9 +53,10 @@ namespace GourmetShopRepositoryTest
         {
             var product = CartGridView.SelectedRows[0].DataBoundItem as Product;
 
+            CartGridView.DataSource = _cartService.GetProducts();
             _cartService.Delete(product);
-
-            CartGridView.DataSource = _cartService.GetProducts(); //TODO fix update issue
+            CartGridView.DataSource = null;
+            CartGridView.DataSource = _cartService.GetProducts();
             CartGridView.Refresh();
             UpdateCartSummary();
         }
@@ -85,7 +84,6 @@ namespace GourmetShopRepositoryTest
 
                 MessageBox.Show("Order placed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //cartlist.Clear(); // dont think we need this
                 CartGridView.Rows.Clear();
                 UpdateCartSummary();
             }
