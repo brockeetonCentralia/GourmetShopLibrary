@@ -84,7 +84,8 @@ namespace GourmetShopRepositoryTest
 
                 MessageBox.Show("Order placed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                CartGridView.Rows.Clear();
+                CartGridView.DataSource = null;
+                _cartService.ClearCart();
                 UpdateCartSummary();
             }
             catch (Exception ex)

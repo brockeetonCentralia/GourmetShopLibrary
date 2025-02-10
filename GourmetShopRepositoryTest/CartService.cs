@@ -28,6 +28,10 @@ namespace GourmetShopRepositoryTest
         {
             _products.Remove(item);
         }
+        public void ClearCart()
+        {
+            _products.Clear();
+        }
 
         public List<Product> GetProducts()
         {

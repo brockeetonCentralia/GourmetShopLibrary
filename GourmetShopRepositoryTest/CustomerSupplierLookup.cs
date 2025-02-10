@@ -50,6 +50,7 @@ namespace GourmetShopRepositoryTest
             var product = ProductDGV.SelectedRows[0].DataBoundItem as Product;
             
             _cartService.Add(product);
+            MessageBox.Show("Item added sucessfully");
         }
 
         public List<Product> GetbySupplierID(int supplierID)
