@@ -5,14 +5,14 @@ GO
 --CHANGE THE ALTER TO CREATE
 ALTER PROCEDURE ValidateUserLogin
 	@UserLogin NVARCHAR(25),
-	@UserPassword NVARCHAR(25)
+	@UserPassword NVARCHAR(25), 
+	@RoleID INT
 AS
 BEGIN
 
 	SET NOCOUNT ON;
 
 	DECLARE @UserID INT;
-	DECLARE @RoleID INT;
 
 	--Check if user exists and password matches
 
@@ -28,7 +28,7 @@ BEGIN
     END
 	--Get user's role
 	SELECT TOP 1 @RoleID = r.RoleID
-	FROM User_Roles ur
+	FROM Users_Roles ur
 	JOIN Roles r ON ur.RoleID = r.RoleID
 	WHERE ur.UserID = @UserID
 
