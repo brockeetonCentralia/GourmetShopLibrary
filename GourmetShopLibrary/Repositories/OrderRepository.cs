@@ -23,7 +23,7 @@ namespace GourmetShopLibrary.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("InsertNewProduct", connection))
+                using (var command = new SqlCommand("AddNewOrder", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@OrderDate", order.OrderDate);

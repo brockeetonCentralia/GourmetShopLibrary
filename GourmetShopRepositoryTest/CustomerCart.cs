@@ -64,6 +64,15 @@ namespace GourmetShopRepositoryTest
 
         private void Purchasebtn_Click(object sender, EventArgs e)
         {
+            decimal totalAmount = 0;
+            foreach (var product in _cartService.GetProducts())
+            {
+                totalAmount += product.UnitPrice;
+            }
+
+            string orderNumber = Guid.NewGuid().ToString().Substring(0, 8).ToUpper();
+            
+
             if (_cartService.Count() == 0)
             {
                 MessageBox.Show("Cart is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -72,15 +81,15 @@ namespace GourmetShopRepositoryTest
 
             try
             {
-                //OrderRepository orderRepository = new OrderRepository(conn);
-                //int customerId = 1; // need to get customer id from login
-                //int orderId = orderRepository.AddOrder(customerId, DateTime.Now);
-
-                //OrderItemRepository orderItemRepository = new OrderItemRepository(conn);
-                //foreach (var product in cartlist)
-                //{
-                //    orderItemRepository.AddOrderItem(orderId, product.ProductID, product.UnitPrice, 1);//need to get quantity once repository is finished
-                //}
+                Order order = new Order
+                {
+                    OrderDate = DateTime.Now,
+                    OrderNumber = orderNumber,
+                    UserID = 2,
+                    TotalAmount = totalAmount
+                };
+                OrderRepository orderRepository = new OrderRepository(conn);
+                orderRepository.AddOrder(order);
 
                 MessageBox.Show("Order placed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
