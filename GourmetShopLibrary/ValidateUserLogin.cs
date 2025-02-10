@@ -13,7 +13,7 @@ namespace GourmetShopLibrary
     public class ValidateUserLogin
     {
         private readonly string _connectionString;
-        
+
         public ValidateUserLogin(string connectionString)
         {
             _connectionString = connectionString;
@@ -30,12 +30,15 @@ namespace GourmetShopLibrary
                     command.Parameters.AddWithValue("@UserLogin", userLogin);
                     command.Parameters.AddWithValue("@UserPassword", userPassword);
 
-                    // read the RoleId from the stored procedures results
-                    
+                    SqlParameter roleParam = new SqlParameter
+                    {
+                        ParameterName = "@RoleID",
+                        SqlDbType = SqlDbType.Int,
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(roleParam);
                     command.ExecuteNonQuery();
-                    //roleID = (int) results.RoleId.Value; // set the value here
-
-                    roleID = 2;
+                    roleID = (int)roleParam.Value;
                 }
             }
             return roleID;
