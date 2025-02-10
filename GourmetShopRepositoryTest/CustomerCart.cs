@@ -15,24 +15,17 @@ namespace GourmetShopRepositoryTest
 {
     public partial class CustomerCart : Form
     {
-        private List<Product> cartlist = new List<Product>();
+        private CartService _cartService;
+
+        //private List<Product> cartlist = new List<Product>();
+        //private CustomerSupplierLookup _CustomerSupplierLookup;
         string conn = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
-        public CustomerCart(List<Product> products)
+
+        public CustomerCart(CartService cartService)
         {
             InitializeComponent();
-            cartlist = products;
-            LoadCart();
-            UpdateCartSummary();
-        }
-
-        private void LoadCart()
-        {
-            CartGridView.Rows.Clear();
-            foreach (var product in cartlist)
-            {
-                //add products to cart 
-                CartGridView.Rows.Add();
-            }
+            _cartService = cartService;
+            CartGridView.DataSource = _cartService.GetProducts();
             UpdateCartSummary();
         }
 
@@ -41,7 +34,7 @@ namespace GourmetShopRepositoryTest
             decimal totalAmount = 0;
             int totalItems = 0;
 
-            foreach (var product in cartlist)
+            foreach (var product in _cartService.GetProducts())
             {
                 totalAmount += product.UnitPrice;//need to get quantity somehow
                 //totalItems+= product.Quantity; somehow need to get quantity
@@ -55,27 +48,24 @@ namespace GourmetShopRepositoryTest
         {
             CustomerSupplierLookup customerSupplierLookup = new CustomerSupplierLookup();
             customerSupplierLookup.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void Removeitemcartbtn_Click(object sender, EventArgs e)
         {
-            // Remove an item form list
-            if (cartlist.Count > 0) 
-            { 
-                cartlist.RemoveAt(cartlist.Count - 1); 
-                CartGridView.Rows.RemoveAt(CartGridView.Rows.Count - 1);
-                UpdateCartSummary();
-            }
-            else
-            {
-                MessageBox.Show("Cart is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            var product = CartGridView.SelectedRows[0].DataBoundItem as Product;
+
+            _cartService.Delete(product);
+
+            CartGridView.DataSource = _cartService.GetProducts(); //TODO fix update issue
+            CartGridView.Refresh();
+            UpdateCartSummary();
         }
+
 
         private void Purchasebtn_Click(object sender, EventArgs e)
         {
-            if (cartlist.Count == 0)
+            if (_cartService.Count() == 0)
             {
                 MessageBox.Show("Cart is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -95,7 +85,7 @@ namespace GourmetShopRepositoryTest
 
                 MessageBox.Show("Order placed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cartlist.Clear();
+                //cartlist.Clear(); // dont think we need this
                 CartGridView.Rows.Clear();
                 UpdateCartSummary();
             }

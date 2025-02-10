@@ -1,4 +1,5 @@
-﻿using GourmetShopLibrary.Models;
+﻿using GourmetShopLibrary.Interfaces;
+using GourmetShopLibrary.Models;
 using GourmetShopLibrary.Repositories;
 using Microsoft.Data.SqlClient;
 using System;
@@ -19,71 +20,62 @@ namespace GourmetShopRepositoryTest
 
         private readonly ProductRepository _productRepository;
         private readonly string _connectionString;
+        private CartService _cartService;
 
         public CustomerSupplierLookup()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
-
+            
             InitializeComponent();
-            _productRepository = new ProductRepository(connectionString);
-            // initalize second form here
+
+            _connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+            _cartService = new CartService();
+            _productRepository = new ProductRepository(_connectionString);
         }
 
         private void SearchSupplierID_Click(object sender, EventArgs e)
         {
             var supplierID = int.Parse(SupplierIDtxt.Text);
-            var product = GetbySupplierID(supplierID);
-            var cartlist = new List<Product>();
-
-            cartlist.Add(product);
-
-            ProductDGV.DataSource = cartlist.ToList();
+            var products = GetbySupplierID(supplierID);
+            ProductDGV.DataSource = products;   
         }
 
         private void ViewCartbtn_Click(object sender, EventArgs e)
         {
-            CustomerSupplierLookup customerSupplierLookup = new CustomerSupplierLookup();
-            customerSupplierLookup.Show();
-            this.Close();
+            CustomerCart customerCart = new CustomerCart(_cartService);
+            customerCart.Show();
         }
 
         private void AddtoCartbtn_Click(object sender, EventArgs e)
         {
-            var supplierID = int.Parse(SupplierIDtxt.Text);
             var product = ProductDGV.SelectedRows[0].DataBoundItem as Product;
-            var cartlist = new List<Product>();
-
-            cartlist.Add(product);
-
-            //CartGridView.DataSource = cartlist.ToList(); // TODO: Still working on this one @SH
+            
+            _cartService.Add(product);
         }
 
-        public Product GetbySupplierID(int supplierID)
+        public List<Product> GetbySupplierID(int supplierID)
         {
+            var products = new List<Product>();
             using (var connection = new SqlConnection(_connectionString))
             {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Product WHERE SupplierId = @SupplierID", connection);
+                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
                 connection.Open();
-                using (var command = new SqlCommand("SELECT * FROM Product WHERE SupplierId = @SupplierID", connection))
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    command.Parameters.AddWithValue("@SupplierID", supplierID);
-                    using (var reader = command.ExecuteReader())
+                    products.Add(new Product
                     {
-                        if (reader.Read())
-                        {
-                            return new Product
-                            {
-                                ProductID = reader.GetInt32(0),
-                                ProductName = reader.GetString(1),
-                                SupplierID = reader.GetInt32(2),
-                                UnitPrice = reader.GetDecimal(3),
-                                Package = reader.GetString(4),
-                                IsDiscontinued = reader.GetBoolean(5)
-                            };
-                        }
-                    }
+                        ProductID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1),
+                        SupplierID = reader.GetInt32(2),
+                        UnitPrice = reader.GetDecimal(3),
+                        Package = reader.GetString(4),
+                        IsDiscontinued = reader.GetBoolean(5)
+                    });
                 }
             }
-            return null;
+            return products;
         }
     }
 }

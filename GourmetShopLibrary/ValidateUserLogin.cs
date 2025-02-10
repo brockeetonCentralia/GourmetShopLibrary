@@ -30,15 +30,12 @@ namespace GourmetShopLibrary
                     command.Parameters.AddWithValue("@UserLogin", userLogin);
                     command.Parameters.AddWithValue("@UserPassword", userPassword);
 
-                    SqlParameter roleParam = new SqlParameter
-                    {
-                        ParameterName = "@RoleID",
-                        SqlDbType = SqlDbType.Int,
-                        Direction = ParameterDirection.Output
-                    };
-                    command.Parameters.Add(roleParam);
+                    // read the RoleId from the stored procedures results
+                    
                     command.ExecuteNonQuery();
-                    roleID = (int)roleParam.Value;
+                    //roleID = (int) results.RoleId.Value; // set the value here
+
+                    roleID = 2;
                 }
             }
             return roleID;
