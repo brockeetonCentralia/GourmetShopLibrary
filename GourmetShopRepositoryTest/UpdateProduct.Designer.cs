@@ -52,6 +52,8 @@
             label6 = new Label();
             button1 = new Button();
             deleteProductTextBox = new TextBox();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -59,7 +61,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem, orderToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -255,6 +257,20 @@
             deleteProductTextBox.Size = new Size(125, 27);
             deleteProductTextBox.TabIndex = 17;
             // 
+            // orderToolStripMenuItem
+            // 
+            orderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
+            orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            orderToolStripMenuItem.Size = new Size(61, 24);
+            orderToolStripMenuItem.Text = "Order";
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(224, 26);
+            viewToolStripMenuItem.Text = "View";
+            viewToolStripMenuItem.Click += viewToolStripMenuItem_Click;
+            // 
             // UpdateProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -313,5 +329,7 @@
         private Label label6;
         private Button button1;
         private TextBox deleteProductTextBox;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
     }
 }

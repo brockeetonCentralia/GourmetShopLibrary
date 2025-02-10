@@ -36,9 +36,11 @@
             editToolStripMenuItem = new ToolStripMenuItem();
             supplierToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
+            editToolStripMenuItem1 = new ToolStripMenuItem();
             dataGridView1 = new DataGridView();
             dataGridView2 = new DataGridView();
-            editToolStripMenuItem1 = new ToolStripMenuItem();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -47,7 +49,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem, orderToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -79,14 +81,14 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 26);
+            toolStripMenuItem1.Size = new Size(120, 26);
             toolStripMenuItem1.Text = "Add";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(224, 26);
+            editToolStripMenuItem.Size = new Size(120, 26);
             editToolStripMenuItem.Text = "Edit";
             editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
@@ -100,9 +102,16 @@
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(224, 26);
+            toolStripMenuItem2.Size = new Size(120, 26);
             toolStripMenuItem2.Text = "Add";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
+            // editToolStripMenuItem1
+            // 
+            editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            editToolStripMenuItem1.Size = new Size(120, 26);
+            editToolStripMenuItem1.Text = "Edit";
+            editToolStripMenuItem1.Click += editToolStripMenuItem1_Click;
             // 
             // dataGridView1
             // 
@@ -128,12 +137,19 @@
             dataGridView2.Size = new Size(422, 448);
             dataGridView2.TabIndex = 4;
             // 
-            // editToolStripMenuItem1
+            // orderToolStripMenuItem
             // 
-            editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            editToolStripMenuItem1.Size = new Size(224, 26);
-            editToolStripMenuItem1.Text = "Edit";
-            editToolStripMenuItem1.Click += editToolStripMenuItem1_Click;
+            orderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
+            orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            orderToolStripMenuItem.Size = new Size(61, 24);
+            orderToolStripMenuItem.Text = "Order";
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(224, 26);
+            viewToolStripMenuItem.Text = "View";
+            viewToolStripMenuItem.Click += viewToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -166,5 +182,7 @@
         private DataGridView dataGridView2;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
     }
 }

@@ -58,6 +58,8 @@
             deleteSupplierIdTextBox = new TextBox();
             button2 = new Button();
             label9 = new Label();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -74,7 +76,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem, orderToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -301,6 +303,20 @@
             label9.TabIndex = 21;
             label9.Text = "Enter Supplier Id";
             // 
+            // orderToolStripMenuItem
+            // 
+            orderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
+            orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            orderToolStripMenuItem.Size = new Size(61, 24);
+            orderToolStripMenuItem.Text = "Order";
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(224, 26);
+            viewToolStripMenuItem.Text = "View";
+            viewToolStripMenuItem.Click += viewToolStripMenuItem_Click;
+            // 
             // UpdateSupplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -370,5 +386,7 @@
         private TextBox deleteSupplierIdTextBox;
         private Button button2;
         private Label label9;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
     }
 }

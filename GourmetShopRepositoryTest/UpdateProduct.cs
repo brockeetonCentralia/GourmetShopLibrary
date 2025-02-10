@@ -81,5 +81,12 @@ namespace GourmetShopRepositoryTest
                 LoadProducts();
             }
         }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderForm orderForm = new OrderForm();
+            orderForm.ShowDialog();
+            this.Close();
+        }
     }
 }

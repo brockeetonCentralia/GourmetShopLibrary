@@ -59,5 +59,12 @@ namespace GourmetShopRepositoryTest
             UpdateSupplier updateSupplier = new UpdateSupplier();
             updateSupplier.ShowDialog();
         }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderForm orderForm = new OrderForm();
+            orderForm.ShowDialog();
+
+        }
     }
 }

@@ -53,6 +53,8 @@
             supplierToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem1 = new ToolStripMenuItem();
             editToolStripMenuItem3 = new ToolStripMenuItem();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -200,7 +202,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem, orderToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(914, 28);
@@ -263,6 +265,20 @@
             editToolStripMenuItem3.Text = "Edit";
             editToolStripMenuItem3.Click += editToolStripMenuItem3_Click;
             // 
+            // orderToolStripMenuItem
+            // 
+            orderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
+            orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            orderToolStripMenuItem.Size = new Size(61, 24);
+            orderToolStripMenuItem.Text = "Order";
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(224, 26);
+            viewToolStripMenuItem.Text = "View";
+            viewToolStripMenuItem.Click += viewToolStripMenuItem_Click;
+            // 
             // SupplierForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -323,5 +339,7 @@
         private ToolStripMenuItem editToolStripMenuItem1;
         private ToolStripMenuItem editToolStripMenuItem2;
         private ToolStripMenuItem editToolStripMenuItem3;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
     }
 }

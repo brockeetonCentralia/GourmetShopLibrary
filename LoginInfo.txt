@@ -1,0 +1,5 @@
+User View | username: User1
+	    password: customer1
+
+Admin View | username: User3
+	     password: admin3

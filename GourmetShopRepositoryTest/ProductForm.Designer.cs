@@ -47,6 +47,8 @@
             supplierToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
             editToolStripMenuItem1 = new ToolStripMenuItem();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -144,7 +146,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem, productToolStripMenuItem, supplierToolStripMenuItem, orderToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
@@ -177,13 +179,13 @@
             // 
             toolStripMenuItem2.ForeColor = SystemColors.AppWorkspace;
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(224, 26);
+            toolStripMenuItem2.Size = new Size(120, 26);
             toolStripMenuItem2.Text = "Add";
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(224, 26);
+            editToolStripMenuItem.Size = new Size(120, 26);
             editToolStripMenuItem.Text = "Edit";
             editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
@@ -197,16 +199,30 @@
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(224, 26);
+            toolStripMenuItem3.Size = new Size(120, 26);
             toolStripMenuItem3.Text = "Add";
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // editToolStripMenuItem1
             // 
             editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            editToolStripMenuItem1.Size = new Size(224, 26);
+            editToolStripMenuItem1.Size = new Size(120, 26);
             editToolStripMenuItem1.Text = "Edit";
             editToolStripMenuItem1.Click += editToolStripMenuItem1_Click;
+            // 
+            // orderToolStripMenuItem
+            // 
+            orderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
+            orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            orderToolStripMenuItem.Size = new Size(61, 24);
+            orderToolStripMenuItem.Text = "Order";
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(224, 26);
+            viewToolStripMenuItem.Text = "View";
+            viewToolStripMenuItem.Click += viewToolStripMenuItem_Click;
             // 
             // ProductForm
             // 
@@ -256,5 +272,7 @@
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
     }
 }
