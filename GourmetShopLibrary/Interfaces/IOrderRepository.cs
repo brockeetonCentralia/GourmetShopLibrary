@@ -11,6 +11,6 @@ namespace GourmetShopLibrary.Interfaces
     {
         void AddOrder(Order order);
         Order GetOrderById(int id);
-        List<Order> GetAllOrders();
+        IEnumerable<Order> GetAllOrders();
     }
 }

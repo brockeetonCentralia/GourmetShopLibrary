@@ -29,120 +29,125 @@
         private void InitializeComponent()
         {
             CartGridView = new DataGridView();
-            Purchasebtn = new Button();
-            Backtoformbtn = new Button();
-            TotalItemslbl = new Label();
+            btnPurchase = new Button();
+            btnBackToProducts = new Button();
+            lblDataViewAmount = new Label();
             label4 = new Label();
-            label5 = new Label();
-            TotalAmountlbl = new Label();
-            Removeitemcartbtn = new Button();
-            label1 = new Label();
+            lblTotalAmountDue = new Label();
+            lblAmount = new Label();
+            btnRemoveItem = new Button();
+            lblNumItemsInCart = new Label();
             ((System.ComponentModel.ISupportInitialize)CartGridView).BeginInit();
             SuspendLayout();
             // 
             // CartGridView
             // 
             CartGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CartGridView.Location = new Point(523, 103);
-            CartGridView.Margin = new Padding(3, 4, 3, 4);
+            CartGridView.Location = new Point(654, 129);
+            CartGridView.Margin = new Padding(4, 5, 4, 5);
             CartGridView.Name = "CartGridView";
             CartGridView.RowHeadersWidth = 51;
-            CartGridView.Size = new Size(358, 457);
+            CartGridView.Size = new Size(448, 571);
             CartGridView.TabIndex = 0;
             // 
-            // Purchasebtn
+            // btnPurchase
             // 
-            Purchasebtn.Location = new Point(314, 477);
-            Purchasebtn.Margin = new Padding(3, 4, 3, 4);
-            Purchasebtn.Name = "Purchasebtn";
-            Purchasebtn.Size = new Size(94, 63);
-            Purchasebtn.TabIndex = 1;
-            Purchasebtn.Text = "Purchase Cart";
-            Purchasebtn.UseVisualStyleBackColor = true;
-            Purchasebtn.Click += Purchasebtn_Click;
+            btnPurchase.Location = new Point(392, 596);
+            btnPurchase.Margin = new Padding(4, 5, 4, 5);
+            btnPurchase.Name = "btnPurchase";
+            btnPurchase.Size = new Size(118, 79);
+            btnPurchase.TabIndex = 1;
+            btnPurchase.Text = "Purchase Cart";
+            btnPurchase.UseVisualStyleBackColor = true;
+            btnPurchase.Click += Purchasebtn_Click;
             // 
-            // Backtoformbtn
+            // btnBackToProducts
             // 
-            Backtoformbtn.Location = new Point(67, 477);
-            Backtoformbtn.Margin = new Padding(3, 4, 3, 4);
-            Backtoformbtn.Name = "Backtoformbtn";
-            Backtoformbtn.Size = new Size(94, 63);
-            Backtoformbtn.TabIndex = 2;
-            Backtoformbtn.Text = "Back to Products";
-            Backtoformbtn.UseVisualStyleBackColor = true;
-            Backtoformbtn.Click += Backtoformbtn_Click;
+            btnBackToProducts.Location = new Point(84, 596);
+            btnBackToProducts.Margin = new Padding(4, 5, 4, 5);
+            btnBackToProducts.Name = "btnBackToProducts";
+            btnBackToProducts.Size = new Size(118, 79);
+            btnBackToProducts.TabIndex = 2;
+            btnBackToProducts.Text = "Back to Products";
+            btnBackToProducts.UseVisualStyleBackColor = true;
+            btnBackToProducts.Click += Backtoformbtn_Click;
             // 
-            // TotalItemslbl
+            // lblDataViewAmount
             // 
-            TotalItemslbl.AutoSize = true;
-            TotalItemslbl.Location = new Point(712, 66);
-            TotalItemslbl.Name = "TotalItemslbl";
-            TotalItemslbl.Size = new Size(70, 20);
-            TotalItemslbl.TabIndex = 4;
-            TotalItemslbl.Text = "$Amount";
+            lblDataViewAmount.AutoSize = true;
+            lblDataViewAmount.Location = new Point(890, 82);
+            lblDataViewAmount.Margin = new Padding(4, 0, 4, 0);
+            lblDataViewAmount.Name = "lblDataViewAmount";
+            lblDataViewAmount.Size = new Size(87, 25);
+            lblDataViewAmount.TabIndex = 4;
+            lblDataViewAmount.Text = "$Amount";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(67, 240);
+            label4.Location = new Point(84, 300);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(369, 20);
+            label4.Size = new Size(432, 25);
             label4.TabIndex = 6;
             label4.Text = "------------------------------------------------------------";
             // 
-            // label5
+            // lblTotalAmountDue
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(67, 309);
-            label5.Name = "label5";
-            label5.Size = new Size(133, 20);
-            label5.TabIndex = 7;
-            label5.Text = "Total Amount Due:";
+            lblTotalAmountDue.AutoSize = true;
+            lblTotalAmountDue.Location = new Point(84, 386);
+            lblTotalAmountDue.Margin = new Padding(4, 0, 4, 0);
+            lblTotalAmountDue.Name = "lblTotalAmountDue";
+            lblTotalAmountDue.Size = new Size(160, 25);
+            lblTotalAmountDue.TabIndex = 7;
+            lblTotalAmountDue.Text = "Total Amount Due:";
             // 
-            // TotalAmountlbl
+            // lblAmount
             // 
-            TotalAmountlbl.AutoSize = true;
-            TotalAmountlbl.Location = new Point(257, 309);
-            TotalAmountlbl.Name = "TotalAmountlbl";
-            TotalAmountlbl.Size = new Size(70, 20);
-            TotalAmountlbl.TabIndex = 10;
-            TotalAmountlbl.Text = "$Amount";
+            lblAmount.AutoSize = true;
+            lblAmount.Location = new Point(321, 386);
+            lblAmount.Margin = new Padding(4, 0, 4, 0);
+            lblAmount.Name = "lblAmount";
+            lblAmount.Size = new Size(87, 25);
+            lblAmount.TabIndex = 10;
+            lblAmount.Text = "$Amount";
             // 
-            // Removeitemcartbtn
+            // btnRemoveItem
             // 
-            Removeitemcartbtn.Location = new Point(187, 477);
-            Removeitemcartbtn.Margin = new Padding(3, 4, 3, 4);
-            Removeitemcartbtn.Name = "Removeitemcartbtn";
-            Removeitemcartbtn.Size = new Size(94, 63);
-            Removeitemcartbtn.TabIndex = 11;
-            Removeitemcartbtn.Text = "Remove item";
-            Removeitemcartbtn.UseVisualStyleBackColor = true;
-            Removeitemcartbtn.Click += Removeitemcartbtn_Click;
+            btnRemoveItem.Location = new Point(234, 596);
+            btnRemoveItem.Margin = new Padding(4, 5, 4, 5);
+            btnRemoveItem.Name = "btnRemoveItem";
+            btnRemoveItem.Size = new Size(118, 79);
+            btnRemoveItem.TabIndex = 11;
+            btnRemoveItem.Text = "Remove item";
+            btnRemoveItem.UseVisualStyleBackColor = true;
+            btnRemoveItem.Click += Removeitemcartbtn_Click;
             // 
-            // label1
+            // lblNumItemsInCart
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(523, 66);
-            label1.Name = "label1";
-            label1.Size = new Size(147, 20);
-            label1.TabIndex = 12;
-            label1.Text = "Num of items in cart:";
+            lblNumItemsInCart.AutoSize = true;
+            lblNumItemsInCart.Location = new Point(654, 82);
+            lblNumItemsInCart.Margin = new Padding(4, 0, 4, 0);
+            lblNumItemsInCart.Name = "lblNumItemsInCart";
+            lblNumItemsInCart.Size = new Size(178, 25);
+            lblNumItemsInCart.TabIndex = 12;
+            lblNumItemsInCart.Text = "Num of items in cart:";
             // 
             // CustomerCart
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
-            Controls.Add(label1);
-            Controls.Add(Removeitemcartbtn);
-            Controls.Add(TotalAmountlbl);
-            Controls.Add(label5);
+            ClientSize = new Size(1142, 750);
+            Controls.Add(lblNumItemsInCart);
+            Controls.Add(btnRemoveItem);
+            Controls.Add(lblAmount);
+            Controls.Add(lblTotalAmountDue);
             Controls.Add(label4);
-            Controls.Add(TotalItemslbl);
-            Controls.Add(Backtoformbtn);
-            Controls.Add(Purchasebtn);
+            Controls.Add(lblDataViewAmount);
+            Controls.Add(btnBackToProducts);
+            Controls.Add(btnPurchase);
             Controls.Add(CartGridView);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CustomerCart";
             Text = "CustomerCart";
             ((System.ComponentModel.ISupportInitialize)CartGridView).EndInit();
@@ -153,13 +158,13 @@
         #endregion
 
         private DataGridView CartGridView;
-        private Button Purchasebtn;
-        private Button Backtoformbtn;
-        private Label TotalItemslbl;
+        private Button btnPurchase;
+        private Button btnBackToProducts;
+        private Label lblDataViewAmount;
         private Label label4;
-        private Label label5;
-        private Label TotalAmountlbl;
-        private Button Removeitemcartbtn;
-        private Label label1;
+        private Label lblTotalAmountDue;
+        private Label lblAmount;
+        private Button btnRemoveItem;
+        private Label lblNumItemsInCart;
     }
 }

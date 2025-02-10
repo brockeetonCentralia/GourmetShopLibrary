@@ -10,9 +10,9 @@ namespace GourmetShopLibrary.Interfaces
     internal interface IUserRepository
     {
         IEnumerable<User> GetAllUsers();
-        Product GetUserById(int id);
-        void AddUser(User customer);
-        void UpdateUser(User customer);
+        User GetUserById(int id);
+        void AddUser(User user);
+        void UpdateUser(User user);
         void DeleteUserById(int id);
     }
 }

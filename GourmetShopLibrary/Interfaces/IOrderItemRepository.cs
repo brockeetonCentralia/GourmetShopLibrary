@@ -10,7 +10,7 @@ namespace GourmetShopLibrary.Interfaces
     public interface IOrderItemRepository
     {
         void AddOrderItem(OrderItem orderItem);
-        List<OrderItem> GetAllOrderItems();
+        IEnumerable<OrderItem> GetAllOrderItems();
         OrderItem GetOrderItemById(int id);
       
     }
